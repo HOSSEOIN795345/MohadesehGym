@@ -14,21 +14,25 @@ jobs:
     - name: Show files
       run: ls -la
 
-    - name: Go to project folder
-      run: cd MohadesehGym && ls -la
-
     - name: Install dependencies
       run: |
         sudo apt update
         sudo apt install -y python3-pip zip unzip openjdk-17-jdk
 
     - name: Set JAVA_HOME
-      run: echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
+      run: |
+        echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
+        echo "PATH=$JAVA_HOME/bin:$PATH" >> $GITHUB_ENV
 
     - name: Install Buildozer
       run: |
         pip install --upgrade pip
         pip install buildozer cython==0.29.36
+
+    # 👇 این قسمت مهمه (رفع ارور لایسنس)
+    - name: Accept Android licenses
+      run: |
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
     - name: Build APK
       run: |
