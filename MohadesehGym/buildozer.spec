@@ -1,27 +1,44 @@
 [app]
 
-title = Mohadeseh Gym
-package.name = mohadesehgym
+# (str) Title of your application
+title = Mohi Gym
+
+# (str) Package name
+package.name = mohi_gym
+
+# (str) Package domain
 package.domain = org.mohadeseh
 
+# (str) Source code where the main.py live
 source.dir = .
-source.include_exts = py,png,jpg,kv,atlas,ttf,json
 
-version = 1.0
+# (list) Source files to include
+source.include_exts = py,png,jpg,kv,ttf,mp3,json
 
+# (str) Application versioning
+version = 0.1
+
+# (list) Application requirements
+requirements = python3,kivy==2.2.1
+
+# (str) Presplash of the application
+presplash.filename =
+
+# (str) Icon of the application
+icon.filename =
+
+# (str) Supported orientation (one of landscape, portrait)
 orientation = portrait
-fullscreen = 0
 
-requirements = python3==3.10.11,kivy==2.1.0,arabic-reshaper,python-bidi
-
-android.api = 31
-android.minapi = 21
-android.ndk = 25b
-
-android.archs = arm64-v8a,armeabi-v7a
-
+# (list) Permissions
 android.permissions = INTERNET
 
-android.copy_libs = 1
+# (int) Target Android API
+android.api = 33
 
-p4a.branch = master
+# (int) Minimum API
+android.minapi = 24
+
+# (int) Android SDK version to use
+android.sdk =
+
